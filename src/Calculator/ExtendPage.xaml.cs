@@ -1,13 +1,12 @@
-﻿namespace Calculator;
+﻿using System.Data;
 
-public partial class MainPage : ContentPage
+namespace Calculator;
+
+public partial class ExtendPage : ContentPage
 {
-    
-    public MainPage()
+    public ExtendPage()
     {
         InitializeComponent();
-        OnClear(this, null);
-
     }
 
     string currentEntry = "";
@@ -15,33 +14,38 @@ public partial class MainPage : ContentPage
     string mathOperator;
     double firstNumber, secondNumber;
     string decimalFormat = "N0";
-    
-    
+
+
 
     void OnSelectNumber(object sender, EventArgs e)
     {
-    
+
         Button button = (Button)sender;
         string pressed = button.Text;
-
-        currentEntry += pressed;
-
-        if ((this.resultText.Text == "0" && pressed == "0")
-            || (currentEntry.Length <= 1 && pressed != "0")
-            || currentState < 0)
+        if (pressed == "mod")
         {
-            this.resultText.Text = "";
-            if (currentState < 0)
-                currentState *= -1;
+            currentEntry += "%";
+        }
+        else if (pressed == "×")
+        {
+            currentEntry += "*";
+        }
+        else if (pressed == "÷")
+        {
+            currentEntry += "/";
+        }
+        else if (pressed == "%")
+        {
+            currentEntry += "*0.01";
+        }
+        else
+        {
+            currentEntry += pressed;
         }
 
-        if (pressed == "." && decimalFormat != "N2")
-        {
-            decimalFormat = "N2";
-        }
-
-        this.resultText.Text += pressed;
+        resultText.Text = currentEntry;
     }
+
 
     void OnSelectOperator(object sender, EventArgs e)
     {
@@ -50,7 +54,14 @@ public partial class MainPage : ContentPage
         currentState = -2;
         Button button = (Button)sender;
         string pressed = button.Text;
-        mathOperator = pressed;            
+        if (pressed == "mod")
+        {
+            mathOperator = "%";
+        }
+        else
+        {
+            mathOperator = pressed;
+        }
     }
 
     private void LockNumberValue(string text)
@@ -83,32 +94,19 @@ public partial class MainPage : ContentPage
 
     void OnCalculate(object sender, EventArgs e)
     {
-        if (currentState == 2)
-        {
-            if(secondNumber == 0)
-                LockNumberValue(resultText.Text);
-
-            double result = Calculator.Calculate(firstNumber, secondNumber, mathOperator);
-
-            this.CurrentCalculation.Text = $"{firstNumber} {mathOperator} {secondNumber}";
-
-            this.resultText.Text = result.ToTrimmedString(decimalFormat);
-            firstNumber = result;
-            secondNumber = 0;
-            currentState = -1;
-            currentEntry = string.Empty;
-        }
-    }    
+        DataTable dt = new DataTable();
+        var v = dt.Compute(currentEntry, "");
+        this.resultText.Text = v.ToString();
+        currentState = -1;
+        currentEntry = v.ToString();
+    }
 
     void OnNegative(object sender, EventArgs e)
     {
-        if (currentState == 1)
-        {
-            secondNumber = -1;
-            mathOperator = "×";
-            currentState = 2;
-            OnCalculate(this, null);
-        }
+        var v = float.Parse(currentEntry) * -1;
+        this.resultText.Text = v.ToString();
+        currentState = -1;
+        currentEntry = this.resultText.Text;
     }
 
     void OnPercentage(object sender, EventArgs e)
@@ -118,9 +116,19 @@ public partial class MainPage : ContentPage
             LockNumberValue(resultText.Text);
             decimalFormat = "N2";
             secondNumber = 0.01;
-            mathOperator = "×";
+            mathOperator = "�";
             currentState = 2;
             OnCalculate(this, null);
         }
+    }
+
+    void OnRoot(object sender, EventArgs e)
+    {
+        var sq = Math.Sqrt(int.Parse(currentEntry));
+        this.resultText.Text = sq.ToString();
+        currentState = -1;
+        currentEntry = sq.ToString();
+
+
     }
 }

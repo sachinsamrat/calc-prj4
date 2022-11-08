@@ -1,38 +1,18 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Calculator.MainPage"
-             BackgroundColor="IndianRed">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Class="Calculator.MainPage"
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#264653">
 
-    <Grid Padding="1" RowSpacing="2" ColumnSpacing="3"
-          RowDefinitions="*,*,*,*,*,*"
-          ColumnDefinitions="*,*,*,*,*">
-        <VerticalStackLayout Padding="30" Spacing="25">
-            <!--<HorizontalStackLayout
-                HorizontalOptions="End"
-                IsVisible="true"
-                Spacing="8">
-                <Label Text="Theme" VerticalTextAlignment="Center" />
-                <RadioButton
-                    x:Name="lightThemeRadioButton"
-                    CheckedChanged="LightThemeRadioButton_CheckedChanged"
-                    Content="Light"
-                    GroupName="theme"
-                    MinimumWidthRequest="80" />
-                <RadioButton
-                    x:Name="darkThemeRadioButton"
-                    CheckedChanged="DarkThemeRadioButton_CheckedChanged"
-                    Content="Dark"
-                    GroupName="theme"
-                    MinimumWidthRequest="80" />
-            </HorizontalStackLayout>-->
-        </VerticalStackLayout>
-
+    <Grid Padding="16" RowSpacing="2" ColumnSpacing="2"
+          RowDefinitions="2*,*,*,*,*,*"
+          ColumnDefinitions="*,*,*,*"
+          BackgroundColor="{DynamicResource PrimaryColor}">
 
         <Label x:Name="CurrentCalculation"
                FontSize="22"
                LineBreakMode="NoWrap"
-               Grid.ColumnSpan="5"
+               Grid.ColumnSpan="4"
                Text=""
                HorizontalTextAlignment="End"
                VerticalTextAlignment="Start"
@@ -42,11 +22,11 @@
                FontSize="64" FontAttributes="Bold" Text="0"
                HorizontalTextAlignment="End"
                VerticalTextAlignment="End"
-               LineBreakMode="NoWrap" Grid.ColumnSpan="5" />
+               LineBreakMode="NoWrap" Grid.ColumnSpan="4" />
 
-        <BoxView BackgroundColor="{StaticResource Gray100}" HeightRequest="1"
+        <BoxView BackgroundColor="{StaticResource LightGray}" HeightRequest="1"
                  Grid.Row="0" VerticalOptions="End"
-                 Grid.ColumnSpan="5"
+                 Grid.ColumnSpan="4"
                  />
 
         <Button Text="C" Grid.Row="1" Grid.Column="0"
@@ -93,24 +73,10 @@
         <Button Text="+" Grid.Row="4" Grid.Column="3"
                Clicked="OnSelectOperator" />
 
-        <Button Text="√" Grid.Row="1" Grid.Column="4"
-               Clicked="OnSelectOperator" />
-        <Button Text="mod" Grid.Row="2" Grid.Column="4"
-               Clicked="OnSelectOperator" />
-        <Button Text="(" Grid.Row="3" Grid.Column="4"
-               Clicked="OnSelectOperator" />
-        <Button Text=")" Grid.Row="4" Grid.Column="4"
-               Clicked="OnSelectOperator" />
-        <Button Text="" Grid.Row="5" Grid.Column="4"
-               Clicked="OnSelectOperator" />
-
-
-
 
 
         <Button Text="=" Grid.Row="5" Grid.Column="3" 
                Clicked="OnCalculate" />
 
     </Grid>
-
 </ContentPage>
