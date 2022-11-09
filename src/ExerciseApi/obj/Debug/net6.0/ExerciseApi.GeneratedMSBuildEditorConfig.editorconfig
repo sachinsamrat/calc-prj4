@@ -1,0 +1,16 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ExerciseApi
+build_property.RootNamespace = ExerciseApi
+build_property.ProjectDir = /Users/praveen/Desktop/dwaram/CG-4/Calculator_Group37-1bc4b162fa5c6d18ec5c9247a5410b46b8f28276/src/ExerciseApi/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/praveen/Desktop/dwaram/CG-4/Calculator_Group37-1bc4b162fa5c6d18ec5c9247a5410b46b8f28276/src/ExerciseApi
+build_property._RazorSourceGeneratorDebug = 
