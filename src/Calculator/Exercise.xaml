@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.Exercise1"
+             BackgroundColor="{DynamicResource PrimaryColor}"
+             Title="Exercise1">
+    <VerticalStackLayout>
+        <Label x:Name="Question" Margin="0, 20,0,0"
+            Text="Question Loads here"
+            VerticalOptions="Center" 
+               FontSize="30"
+            HorizontalOptions="Center" />
+        <HorizontalStackLayout Margin="0, 20,0,0"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" >
+            <Button x:Name="Val1" Clicked="Val1Clicked"
+               FontSize="20"  WidthRequest="150"></Button>
+            <Button x:Name="Val2" Clicked="Val2Clicked"
+               FontSize="20"  WidthRequest="150"></Button>
+            <Button x:Name="Val3" Clicked="Val3Clicked" 
+               FontSize="20" WidthRequest="150"></Button>
+        </HorizontalStackLayout>
+        <Label x:Name="IsCorrect" Margin="0, 20,0,0"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+               FontSize="20"/>
+        <HorizontalStackLayout Margin="0, 20,0,0"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" >
+            <Button x:Name="TryAgain" Text="Try Again" Clicked="TryAgain_Clicked" IsVisible="false" 
+               FontSize="20" WidthRequest="150" ></Button>
+            <Button x:Name="SkipToNext" Text="Skip To Next" Clicked="SkipToNext_Clicked" IsVisible="false" 
+               FontSize="20" WidthRequest="150" ></Button>
+        </HorizontalStackLayout>
+        <Button x:Name="NewQuiz" Text="Next Quiz" Clicked="NewQuiz_Clicked" IsVisible="false" Margin="40"
+               FontSize="20"  WidthRequest="150"></Button>
+    </VerticalStackLayout>
+</ContentPage>
