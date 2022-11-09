@@ -35,7 +35,7 @@
   ##### Assignment2:
   1. API implementation:
   2. API skeleton
-  1. API call from UI
+  3. API call from UI
 
 
 ----
@@ -44,4 +44,4 @@
  
 
   #### Assignment2: 
-!(images/1.png)
+![](images/1.png)
