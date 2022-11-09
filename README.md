@@ -45,3 +45,10 @@
 
   #### Assignment2: 
 ![](images/1.png)
+![](images/a.png)
+![](images/b.png)
+![](images/c.png)
+![](images/d.png)
+![](images/e.png)
+![](images/f.png)
+
