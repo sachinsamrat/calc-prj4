@@ -1,3 +1,5 @@
+
+
 using Calculator.Exercise;
 using System.Diagnostics.Metrics;
 using System.Net.Http.Headers;
@@ -7,7 +9,7 @@ public partial class Exercise1 : ContentPage
 {
     List<ExerciseDTO> _exercises;
     int counter = 0;
-
+    int correctAnswers = 0;
     public Exercise1()
     {
         InitializeComponent();
@@ -17,7 +19,8 @@ public partial class Exercise1 : ContentPage
 
     private void FetchContent()
     {
-        var apiUrl = "https://localhost:7115/Weather";
+        var apiUrl = "https://localhost:7115/Exercises";
+        correctAnswers = 0;
         _exercises = GetExercises(apiUrl);
     }
 
@@ -59,10 +62,11 @@ public partial class Exercise1 : ContentPage
     private void Complete()
     {
         Question.Text = "That's all Folks!!";
+        IsCorrect.Text = correctAnswers + "/" + _exercises.Count;
         Val1.IsVisible = false;
         Val2.IsVisible = false;
         Val3.IsVisible = false;
-        IsCorrect.IsVisible = false;
+        IsCorrect.IsVisible = true;
         NewQuiz.IsVisible = true;
     }
 
@@ -112,6 +116,7 @@ public partial class Exercise1 : ContentPage
         if (_exercises[counter].Options[v] == _exercises[counter].CorrectAnswer)
         {
             IsCorrect.Text = "That is correct :)";
+            ++correctAnswers;
             Dispatcher.DispatchDelayed(new TimeSpan(0,0,1),()=>{ ++counter; LoadQuestion(); });
         }
         else
