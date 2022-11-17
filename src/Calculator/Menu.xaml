@@ -21,6 +21,6 @@
         <Button Text="Pink" Grid.Row="4" Grid.Column="0" TextColor="Black"
                BorderWidth="3"    BackgroundColor="Pink" WidthRequest="200" HeightRequest="50" Clicked="onpinkclick"/>
 
-    </Grid>
+    </Grid/>
 
 </ContentPage>
