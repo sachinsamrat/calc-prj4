@@ -2,10 +2,10 @@ namespace Calculator;
 
 public static class Calculator
 {
-    public static double Calculate(double value1, double value2,  string mathOperator)
+    public static List<HistoryItem> historyItems = new List<HistoryItem>();
+    public static double Calculate(double value1, double value2, string mathOperator)
     {
         double result = 0;
-
         switch (mathOperator)
         {
             case "÷":
@@ -15,26 +15,15 @@ public static class Calculator
                 result = value1 * value2;
                 break;
             case "+":
-                result = value1 + value2 ;
+                result = value1 + value2;
                 break;
             case "-":
                 result = value1 - value2;
                 break;
-            case "√":
-                result = Math.Sqrt(value1);
-                break;
-            case "mod":
-                result = value1 % value2;
-                break;
-            case "(":
-                result = '(';
-                break;
-            case ")":
-                result = ')';
-                break;
-
         }
 
+        string question = value1.ToString() + mathOperator + value2.ToString();
+        historyItems.Add(new HistoryItem() { QuestionAnswer = question + " = " + result.ToString() });
         return result;
     }
 }
