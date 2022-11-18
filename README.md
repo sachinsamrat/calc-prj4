@@ -41,11 +41,11 @@
  
 
   #### Assignment3: 
-![](images/1.png)
-![](images/a.png)
-![](images/b.png)
-![](images/c.png)
-![](images/d.png)
-![](images/e.png)
-![](images/f.png)
+![](1.png)
+![](a.png)
+![](b.png)
+![](c.png)
+![](d.png)
+![](e.png)
+![](f.png)
 
