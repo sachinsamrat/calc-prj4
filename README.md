@@ -13,29 +13,26 @@
 #### Sachin samrat deva pasam 
  
   
-  ##### Assignment2:
-  1. Flyout add
-  2. General Style for the exercise Page
-  3. Load Question and answer
+   ##### Assignment3:
+  1. Flyout page
+  2. History Backend Logic( cs files)
+  3. About UI changes
   4. Documentation
   
 #### naga pavan
  
 
-  ##### Assignment2:
-1. Validate answer based
-2. Logic for Correct answer
-3. Logic for incorrect answer
-4. 	Try again
-5. 	Skip to Next
-6. Next quiz
+    ##### Assignment3:
+1. History Frontend Logic
+2. Logic for questions were improved
+3. UI Changes calender UI and backend research work for history page
 
 #### Yaswanth gollapudi
 
-  ##### Assignment2:
-  1. API implementation:
-  2. API skeleton
-  3. API call from UI
+   ##### Assignment3:
+  1. API Implementation and added more data to it.
+  2. History Frontend Logic
+  3. UI changes in colors and style in resources
 
 
 ----
