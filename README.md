@@ -14,24 +14,23 @@
  
   
    ##### Assignment3:
-  1. Flyout page
-  2. History Backend Logic( cs files)
-  3. About UI changes
-  4. Documentation
+  1. History Backend Logic( cs files)
+  2. About UI changes
+  3. Documentation
   
 #### naga pavan
  
 
     ##### Assignment3:
 1. History Frontend Logic
-2. Logic for questions were improved
-3. UI Changes calender UI and backend research work for history page
+2. DB connection
+3. backend logic
 
 #### Yaswanth gollapudi
 
    ##### Assignment3:
-  1. API Implementation and added more data to it.
-  2. History Frontend Logic
+  1. layout for history page
+  2. services addition and module separation
   3. UI changes in colors and style in resources
 
 
