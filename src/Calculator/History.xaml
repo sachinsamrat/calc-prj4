@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Calculator.History1"
-             NavigatedTo="ContentPage_NavigatedTo" 
-             BackgroundColor="{DynamicResource PrimaryColor}"
-             Title="History1">
-    <VerticalStackLayout>
-        <ListView x:Name="ListViewItems">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding DateTime1}" Detail="{Binding QuestionAnswer}"/>
+             x:Class="Project4.Views.History"
+             xmlns:local="clr-namespace:Project4"
+             xmlns:models="clr-namespace:Project4.Model"
+             xmlns:viewmodel="clr-namespace:Project4.ViewModel"
+             x:DataType="viewmodel:HistoryPageViewModel"
+             x:Name="HistoryPage"
+             Title="History">
+    <StackLayout>
+        <Label 
+            Text="Calculator History"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button Text="Clear" Command="{Binding DeleteExpressionCommand}" HorizontalOptions="EndAndExpand" />
+        <CollectionView ItemsSource="{Binding Expressions}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Expression">
+                   <ScrollView Margin="20">
+                    <Frame Margin="5" Padding="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="10" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0"  Grid.Column="0" Text="{Binding Exp}" FontSize="18" FontAttributes="Bold" />
+                            <Label Grid.Row="0"  Grid.Column="1" Text="{Binding Ans}" FontSize="18" FontAttributes="Bold" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodel:HistoryPageViewModel}},Path=GetExpressionListCommand}"
+                                                  CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    </ScrollView>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>

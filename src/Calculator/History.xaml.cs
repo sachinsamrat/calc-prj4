@@ -1,16 +1,19 @@
-namespace Calculator;
+using Project4.ViewModel;
 
-public partial class History1 : ContentPage
+namespace Project4.Views;
+
+public partial class History : ContentPage
 {
-    public List<HistoryItem> Items { get; set; }
-    public History1()
-    {
-        InitializeComponent();
-        ListViewItems.ItemsSource = Calculator.historyItems;
+    private HistoryPageViewModel _viewMode;
+    public History(HistoryPageViewModel viewModel)
+	{
+		InitializeComponent();
+        _viewMode = viewModel;
+        this.BindingContext = viewModel;
     }
-
-    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    protected override void OnAppearing()
     {
-        ListViewItems.ItemsSource = Calculator.historyItems;
+        base.OnAppearing();
+        _viewMode.GetExpressionListCommand.Execute(null);
     }
 }
