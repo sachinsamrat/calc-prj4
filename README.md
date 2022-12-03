@@ -40,11 +40,7 @@
  
 
   #### Assignment3: 
-![](1.png)
-![](a.png)
-![](b.png)
-![](c.png)
-![](d.png)
-![](e.png)
-![](f.png)
+![](Picture1.png)
+![](Picture2.png)
+
 
